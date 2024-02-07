@@ -1,0 +1,13 @@
+# TO DO
+- ¿Existe el archivo del mapa?
+- ¿Es el mapa rectangular?
+- Todas las líneas deberían tener la misma longitud.
+- ¿Hay algo en el archivo del mapa?
+- ¿Está el mapa rodeado de paredes?
+- Verifica las primeras y últimas líneas y columnas, todas deberían ser 1.
+- ¿Hay solo una salida?
+- Simplemente cuenta cuántas E encuentras en el mapa.
+- ¿Hay solo una posición de inicio?
+- Simplemente cuenta cuántas P encuentras en el mapa.
+- ¿Hay al menos un objeto coleccionable?
+- Simplemente cuenta cuántas C encuentras en el mapa.
