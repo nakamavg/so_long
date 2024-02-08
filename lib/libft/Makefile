@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dgomez-m <aecm.davidgomez@gmail.com>       +#+  +:+       +#+         #
+#    By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 18:33:13 by dgomez-m          #+#    #+#              #
-#    Updated: 2023/12/13 19:09:54 by dgomez-m         ###   ########.fr        #
+#    Updated: 2024/02/07 10:55:05 by dgomez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS			= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c 		\
       			ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
 				ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 				ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-				ft_putnbr_fd.c ft_tolower.c
+				ft_putnbr_fd.c ft_tolower.c get_next_line.c get_next_line_utils.c
 OBJS			= $(SRCS:.c=.o)
  
 BONUS			=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
