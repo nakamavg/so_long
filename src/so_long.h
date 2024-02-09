@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 09:57:02 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/08 16:31:45 by dgomez-m         ###   ########.fr       */
+/*   Created: 2024/02/08 15:58:44 by dgomez-m          #+#    #+#             */
+/*   Updated: 2024/02/08 16:23:47 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int	main(int argc, char **argv)
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <mlx.h>
+
+typedef struct s_game
 {
-	t_game 	*game;
-	
-	game->map = getmap(argv[1]);
-	
-	return (0);
-}
+	char **map;
+}	t_game;
+
+#endif
