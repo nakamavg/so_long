@@ -1,10 +1,13 @@
 NAME		:= so_long
 MLX_CF		:= -framework OpenGL -framework AppKit
+CFLAGS		:= -Wall -Wextra -Werror -I
 MLX_PATH	:= lib/mlx
 LIBFT_PATH	:= lib/libft
 FT_PRINTF_PATH	:= lib/ft_printf
+INCLUDE 	:= ./src/so_long.h
 SRC 		:= $(wildcard src/*.c)
 OBJ			:= $(SRC:src/%.c=%.o)
+
 all:$(NAME)
 
 $(NAME):$(OBJ)
@@ -13,10 +16,12 @@ $(NAME):$(OBJ)
 	make -C $(LIBFT_PATH) 
 	make -C $(FT_PRINTF_PATH)
 	mv $(MLX_PATH)/libmlx.a bin/
+	mv $(LIBFT_PATH)/libft.a bin/
+	mv $(FT_PRINTF_PATH)/libftprintf.a bin/
 	gcc $(OBJ)  bin/*.a -o $(NAME)
 
-$(OBJ):%.o:src/%.c
-	gcc -c $? -o $@ 
+$(OBJ):%.o:src/%.c $(INCLUDE)
+	gcc -c $< -o $@ 
 
 clean:
 	rm -rf $(OBJ) $(NAME)
