@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 09:57:02 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/11 19:15:09 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/11 20:11:26 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(int argc, char **argv)
 	printf("game->map.path: %s\n", game->map.path);
 	get_len(game);
 	read_map(game);
+	check_perimeter(game); 
 	print_map(game);
 	return (0);
 }
