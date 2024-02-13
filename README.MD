@@ -1,6 +1,4 @@
 # TO DO
-- ¿Está el mapa rodeado de paredes?
-- Verifica las primeras y últimas líneas y columnas, todas deberían ser 1.
 - ¿Hay solo una salida?
 - Simplemente cuenta cuántas E encuentras en el mapa.
 - ¿Hay solo una posición de inicio?

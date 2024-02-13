@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:25:55 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/11 19:14:01 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:18:59 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	read_map(t_game *game)
 	int		i;
 	int		fd;
 	char	*line;
+	
 
 	fd = 0;
 	fd =open(game->map.path, O_RDONLY);
@@ -35,4 +36,51 @@ void	read_map(t_game *game)
 	}
 	game->map.map[i] = NULL;
 	close (fd);
+}
+
+void check_perimeter(t_game *game)
+{
+	int x = game->map.x;
+	int y = game->map.y;
+	//checkear primera linea y ultima
+	while(x--)
+	{
+		if (game->map.map[0][x] != '1' || game->map.map[y - 1][x] != '1')
+			ft_error("Error\nMap is not closed\n");
+	}
+	//checkear primera columna y ultima
+	while(y--)
+	{
+		if (game->map.map[y][0] != '1' || 
+		game->map.map[y][game->map.x - 1] != '1')
+			ft_error("Error\nMap is not closed\n");
+	}
+}
+void count_things(t_game *game)
+{
+	int x;
+	int y;
+	
+
+	y = 0;
+	
+	while(game->map.map[y])
+	{
+		x = 0;
+		while(game->map.map[y][x])
+		{
+			
+			if (game->map.map[y][x] == 'P')
+				game->map.player++;
+			else if (game->map.map[y][x] == 'C')
+				game->player.c_collects++;
+			else if (game->map.map[y][x] == 'E')
+				game->map.count++;
+			x++;
+		}
+		y++;
+	}
+	if (game->map.player != 1 || game->map.count != 1 
+		|| game->player.c_collects < 1 || game->map.count != 1)
+		ft_error("Error\nInvalid map\n");
 }

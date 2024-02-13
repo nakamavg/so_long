@@ -1,6 +1,6 @@
 NAME		:= so_long
 MLX_CF		:= -framework OpenGL -framework AppKit
-CFLAGS		:= -Wall -Wextra -Werror -I
+CFLAGS		:= -Wall -Wextra -Werror -fsanitize=address -Ilib/libft
 MLX_PATH	:= lib/mlx
 LIBFT_PATH	:= lib/libft
 FT_PRINTF_PATH	:= lib/ft_printf
@@ -18,7 +18,7 @@ $(NAME):$(OBJ)
 	mv $(MLX_PATH)/libmlx.a bin/
 	mv $(LIBFT_PATH)/libft.a bin/
 	mv $(FT_PRINTF_PATH)/libftprintf.a bin/
-	gcc $(OBJ)  bin/*.a -o $(NAME)
+	gcc $(OBJ) $(CFLAGS) $(MLX_CF) bin/*.a -o $(NAME) && ./so_long map.ber
 
 $(OBJ):%.o:src/%.c $(INCLUDE)
 	gcc -c $< -o $@ 
@@ -31,4 +31,4 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 re: clean all 
-	norminette src/*.c 
+#norminette src/*.c 
