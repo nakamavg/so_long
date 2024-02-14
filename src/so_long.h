@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:58:44 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/13 16:02:24 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 05:55:19 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # include "../lib/mlx/mlx.h"
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
+# define WALL   "textures/wall.xpm"
+# define FLOOR  "../textures/floor.xpm"
+# define PLAYER  "../textures/player.xpm"
+# define EXIT  "../textures/exit.xpm"
+# define COIN  "../textures/coins.xpm"
+
 
 typedef struct s_map
 {
@@ -72,7 +78,6 @@ void 	count_things(t_game *game);
 void	get_player(t_game *game);
 void	handler_ff(t_game *game);
 void 	handler_errors(t_game *game);	
-
 
 
 #endif

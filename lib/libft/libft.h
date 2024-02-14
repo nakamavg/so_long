@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 04:41:06 by nakama            #+#    #+#             */
-/*   Updated: 2024/02/13 22:11:48 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 02:04:34 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# define WALL   "../textures/wall.xpm"
-# define FLOOR  "textures/floor.xpm"
+
 
 typedef struct s_list
 {

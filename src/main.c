@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 09:57:02 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/13 22:07:54 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 02:51:44 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ int	main(int argc, char **argv)
 	read_map(&game);
 		print_map(&game);
 	game.mlx = mlx_init();
-	game.mlx_win = mlx_new_window(game.mlx,1920,1080,"so_long");
+	game.mlx_win = mlx_new_window(game.mlx, game.map.x * 64 - 64, \
+	game.map.y * 64, "so_long");
+	charge_img(&game);
 	mlx_loop(game.mlx);
 	return (0);
 }
