@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 02:52:12 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/14 07:27:04 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:32:21 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,19 @@ void charge_img(t_game *game)
 }
 void load_img(t_game *game, int y, int x)
 {
-	if(game->map[y][x] == '0')
+	if(game->map.map[y][x] == '1')
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+		game->img.wall, (x * 64), (y * 64));
 	
+	if(game->map.map[y][x] == '0')
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+		game->img.floor, (x * 64), (y * 64));
+	if(game->map.map[y][x] == 'E')
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+		game->img.exit, (x * 64), (y * 64));
+	if(game->map.map[y][x] == 'P')
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+		game->img.player, (x * 64), (y * 64));		
 }
 
 void put_img(t_game *game)

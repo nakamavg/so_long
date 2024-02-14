@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:58:44 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/14 05:55:19 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:32:58 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void 	check_perimeter(t_game *game);
 void 	count_things(t_game *game);
 void	get_player(t_game *game);
 void	handler_ff(t_game *game);
-void 	handler_errors(t_game *game);	
+void 	handler_errors(t_game *game);
+void	put_img(t_game *game);
 
 
 #endif
