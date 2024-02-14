@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 09:57:02 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/14 07:33:35 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:58:58 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	game.mlx_win = mlx_new_window(game.mlx, game.map.x * 64 - 64, \
 	game.map.y * 64, "so_long");
-	put_img(&game);
+	get_images(&game);
+
 
 	mlx_loop(game.mlx);
 	return (0);
