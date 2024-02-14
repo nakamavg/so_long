@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:57:36 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/13 11:36:58 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:22:53 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	check_extension(char *argv1, t_game *game)
 
 	if(ft_strncmp(&argv1[i - 4], ".ber", 4) != 0)
 	{
-		ft_putstr_fd("Error\n Map file must have .ber extension \n", 2);
-		exit(1);
+		ft_error("Error\n Map file must have .ber extension \n");
 	}
 	game->map.path = argv1;
 }

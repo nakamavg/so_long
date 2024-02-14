@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:58:44 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/14 07:59:52 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:16:01 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,16 @@
 # define PLAYER "textures/player.xpm"
 # define EXIT  	"textures/exit.xpm"
 # define COIN  	"textures/coins.xpm"
-
+# define Q 12
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define ESC 0x35
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define KEY_DOWN 125
+# define KEY_UP 126
 
 typedef struct s_map
 {
@@ -79,6 +88,8 @@ void	get_player(t_game *game);
 void	handler_ff(t_game *game);
 void 	handler_errors(t_game *game);
 void	get_images(t_game *game);
-
+int		destroy_window(t_game *game);
+int		handler_keys(int keycode, t_game *game);
+void	ft_free(t_game *game);
 
 #endif

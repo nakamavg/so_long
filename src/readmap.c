@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:25:55 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/13 19:18:59 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:21:10 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,11 @@ void check_perimeter(t_game *game)
 {
 	int x = game->map.x;
 	int y = game->map.y;
-	//checkear primera linea y ultima
 	while(x--)
 	{
 		if (game->map.map[0][x] != '1' || game->map.map[y - 1][x] != '1')
 			ft_error("Error\nMap is not closed\n");
 	}
-	//checkear primera columna y ultima
 	while(y--)
 	{
 		if (game->map.map[y][0] != '1' || 

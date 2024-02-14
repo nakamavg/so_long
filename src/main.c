@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 09:57:02 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/14 07:58:58 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:26:23 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ static void	check_number_of_args(int argc)
 		ft_error("Error\nInvalid number of arguments\n");
 	}
 }
-
+int	key_hook(int keycode, t_game *game)
+{
+	printf("letra pulsada%d\n" ,keycode);
+	return (0);
+}
 
 void	print_map(t_game *game)
 {
@@ -36,6 +40,11 @@ void	print_map(t_game *game)
 	printf("%s", game->map.map[1]);
 	printf("%s", game->map.map[2]);
 	printf("%s", game->map.map[3]);
+}
+void	hooks(t_game *game)
+{
+	mlx_hook(game->mlx_win, 17, 1, destroy_window, game);
+	mlx_hook(game->mlx_win, 2, 1, handler_keys, game);
 }
 
 int	main(int argc, char **argv)
@@ -57,10 +66,11 @@ int	main(int argc, char **argv)
 	read_map(&game);
 		print_map(&game);
 	game.mlx = mlx_init();
-	game.mlx_win = mlx_new_window(game.mlx, game.map.x * 64 - 64, \
+	game.mlx_win = mlx_new_window(game.mlx, game.map.x * 64, \
 	game.map.y * 64, "so_long");
+	hooks(&game);
 	get_images(&game);
-
+	
 
 	mlx_loop(game.mlx);
 	return (0);

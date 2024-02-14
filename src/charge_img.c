@@ -6,13 +6,13 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 02:52:12 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/14 08:00:51 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:35:33 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	get_xpm(t_game *game)
+static void	charge_xpm(t_game *game)
 {
 	int	x;
 	int	y;
@@ -36,11 +36,26 @@ static void	put_images(t_game *game, int x, int y)
 		mlx_put_image_to_window (game->mlx, game->mlx_win, \
 			game->img.exit, (x * 64), (y * 64));
 	else if (game->map.map[y][x] == 'C')
+		{
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+			game->img.floor, (x * 64), (y * 64));		
 		mlx_put_image_to_window (game->mlx, game->mlx_win, \
 			game->img.collects, (x * 64), (y * 64));
+		}
 	else if (game->map.map[y][x] == 'P')
+	{
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+			game->img.floor, (x * 64), (y * 64));		
 		mlx_put_image_to_window (game->mlx, game->mlx_win, \
 			game->img.player, (x * 64), (y * 64));
+	}
+	else if (game->map.map[y][x] == 'D')
+	{
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+			game->img.exit, (x * 64), (y * 64));		
+		mlx_put_image_to_window (game->mlx, game->mlx_win, \
+			game->img.player, (x * 64), (y * 64));
+	}
 }
 
 void	get_images(t_game *game)
@@ -49,7 +64,7 @@ void	get_images(t_game *game)
 	int	x;
 
 	y = 0;
-	get_xpm(game);
+	charge_xpm(game);
 	while (game->map.map[y] != 0)
 	{
 		x = 0;
