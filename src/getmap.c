@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:57:36 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/15 21:46:32 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/15 21:50:10 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	get_len(t_game *game)
 		line = get_next_line(fd);
 		free(tmp);
 	}
-	if (game->map.y == game->map.x)
-		ft_error("Error\nMap is not rectangular\n");
+	
 	close(fd);
 }
