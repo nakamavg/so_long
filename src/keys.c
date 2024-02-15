@@ -6,63 +6,67 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:08:33 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/14 14:09:55 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/15 21:42:00 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	move_up(t_game *game)
-{	
-	if (game->map.map[game->player.y - 1][game->player.x] == '1')
-			return ;
-	else if (game->map.map[game->player.y - 1][game->player.x] == 'C')
-		{	
-			game->player.collectibles--;
-			game->map.map[game->player.y][game->player.x] = '0';
-			game->map.map[game->player.y - 1][game->player.x] = 'P';
-			game->player.y--;
-			get_images (game);
-			ft_printf ("moves -> %d\n", game->player.moves++);
-		}
-		else if (game->map.map[game->player.y - 1][game->player.x] == 'E' \
-			&& game->player.collectibles == 0)
-			destroy_window(game);
-		else if (game->map.map[game->player.y - 1][game->player.x] == 'E'\
-			&& game->player.collectibles > 0)
-		{
-			game->map.map[game->player.y][game->player.x] = '0';
-			game->map.map[game->player.y - 1][game->player.x] = 'D';
-			game->player.y--;
-			get_images (game);
-			ft_printf ("moves -> %d\n", game->player.moves++);
-		}
-	}
-void	move_down(t_game *game)
+void	check_0(t_game *game, int my, int mx)
 {
-	if (game->map.map[game->player.y + 1][game->player.x] != '1')
-	{
-		if (game->map.map[game->player.y + 1][game->player.x] == 'C')
-			game->player.collectibles--;
+	if (game->map.map[game->player.y][game->player.x] != 'D')
 		game->map.map[game->player.y][game->player.x] = '0';
-		game->map.map[game->player.y - 1][game->player.x] = 'P';
-		game->player.y--;
-		get_images (game);
-		ft_printf ("moves -> %d\n", game->player.moves++);
-	}
-	if (game->map.map[game->player.y - 1][game->player.x] == 'E' \
-	&& game->player.collectibles == 0)
-		destroy_window(game);
-
+	else
+		game->map.map[game->player.y][game->player.x] = 'E';
+	game->map.map[game->player.y + my][game->player.x + mx] = 'P';
+	game->player.y += my;
+	game->player.x += mx;
+	get_images(game);
+	ft_printf("moves -> %d\n", game->player.moves++);
 }
-int handler_keys(int keycode, t_game *game)
+
+void	move(t_game *game, int my, int mx)
 {
-	if(keycode == Q || keycode == ESC )
+	int	py;
+	int	px;
+
+	py = game->player.y;
+	px = game->player.x;
+	if (game->map.map[py + my][px + mx] == '1')
+		return ;
+	if (game->map.map[py + my][px + mx] == '0')
+		return (check_0(game, my, mx));
+	if (game->map.map[py + my][px + mx] == 'E' && game->player.tokens == 0)
+		return ((void)(destroy_window(game)));
+	if (game->map.map[py + my][px + mx] == 'C')
+	{
+		game->player.tokens--;
+		if (game->map.map[game->player.y][game->player.x] != 'D')
+			game->map.map[py][px] = '0';
+		else
+			game->map.map[game->player.y][game->player.x] = 'E';
+		game->map.map[game->player.y += my][game->player.x += mx] = 'P';
+		get_images(game);
+		return ((void)(ft_printf("moves -> %d\n", game->player.moves++)));
+	}
+	else
+		game->map.map[py][px] = '0';
+	if (game->map.map[py + my][px + mx] == 'E')
+		game->map.map[game->player.y += my][game->player.x += mx] = 'D';
+	get_images(game);
+	ft_printf("moves -> %d\n", game->player.moves++);
+}
+
+int	handler_keys(int keycode, t_game *game)
+{
+	if (keycode == Q || keycode == ESC)
 		destroy_window(game);
-	else if(keycode == W || keycode == KEY_UP)
-			move_up(game);
-	else if(keycode == S || keycode == KEY_DOWN)
-			move_down(game);
-			
-			
+	else if (keycode == W || keycode == KEY_UP)
+		move(game, -1, 0);
+	else if (keycode == S || keycode == KEY_DOWN)
+		move(game, 1, 0);
+	else if (keycode == A || keycode == KEY_LEFT)
+		move(game, 0, -1);
+	else if (keycode == D || keycode == KEY_RIGHT)
+		move(game, 0, 1);
 }
