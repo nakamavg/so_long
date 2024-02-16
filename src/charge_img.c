@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 02:52:12 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/15 21:44:22 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:02:57 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,18 @@ static void	put_images(t_game *game, int x, int y)
 	current = game->map.map[y][x];
 	if (current == '1')
 	{
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.wall, (x
-				* 64), (y * 64));
+		put_wall(game, x, y);
 		return ;
 	}
-	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.floor, (x * 64),
-		(y * 64));
+	put_floor(game, x, y);
 	if (current == 'C')
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.collects, (x
-				* 64), (y * 64));
+		put_collects(game, x, y);
 	if (current == 'E')
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.exit, (x
-				* 64), (y * 64));
+		put_exit(game, x, y);
 	if (current == 'P')
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.player, (x
-				* 64), (y * 64));
+		put_player(game, x, y);
 	if (current == 'D')
-	{
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.exit, (x
-				* 64), (y * 64));
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.player, (x
-				* 64), (y * 64));
-	}
+		put_player_exit(game, x, y);
 }
 
 void	get_images(t_game *game)

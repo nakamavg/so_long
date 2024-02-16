@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:57:36 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/15 21:50:10 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:01:58 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	get_len(t_game *game)
 	if (fd < 0)
 		ft_error("Error\nMap not found\n");
 	line = get_next_line(fd);
+	if (!line)
+		ft_error("Error\nMap is empty\n");
 	game->map.x = ft_strlen(line) - 1;
 	while (line)
 	{
@@ -47,6 +49,5 @@ void	get_len(t_game *game)
 		line = get_next_line(fd);
 		free(tmp);
 	}
-	
 	close(fd);
 }

@@ -1,6 +1,6 @@
 NAME		:= so_long
 MLX_CF		:= -framework OpenGL -framework AppKit
-CFLAGS		:= -Wall -Wextra -Werror -fsanitize=address -Ilib/libft
+CFLAGS		:= -Wall -Wextra -Werror -Ilib/libft 
 MLX_PATH	:= lib/mlx
 LIBFT_PATH	:= lib/libft
 FT_PRINTF_PATH	:= lib/ft_printf
@@ -18,10 +18,11 @@ $(NAME):$(OBJ)
 	mv $(MLX_PATH)/libmlx.a bin/
 	mv $(LIBFT_PATH)/libft.a bin/
 	mv $(FT_PRINTF_PATH)/libftprintf.a bin/
-	gcc $(OBJ) $(CFLAGS) $(MLX_CF) bin/*.a -o $(NAME) && ./so_long map.ber
+	cc  $(CFLAGS) $(MLX_CF) bin/*.a $(OBJ) -o $(NAME) 
 
 $(OBJ):%.o:src/%.c $(INCLUDE)
-	gcc -c $< -o $@ 
+	@echo "Compiling $<"
+	cc $(CFLAGS) -c $< -o $@ 
 
 clean:
 	rm -rf $(OBJ) $(NAME)

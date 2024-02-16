@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"so_long.h": "c",
-		"__cxx_version": "c",
-		"__hash_table": "c",
-		"functional": "c",
-		"type_traits": "c"
-	}
-}

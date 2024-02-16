@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 04:41:06 by nakama            #+#    #+#             */
-/*   Updated: 2024/02/14 02:04:34 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:33:55 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-size_t	ft_strlen(const char *s);
+int	ft_strlen(const char *s);
 void	ft_putchar_fd(char c, int fd);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:47:31 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/15 21:37:45 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:09:45 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,12 @@ int	destroy_window(t_game *game)
 	mlx_destroy_image(game->mlx, game->img.player);
 	ft_free(game);
 	exit(EXIT_SUCCESS);
+}
+
+void	put_player_exit(t_game *game, int x, int y)
+{
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.exit, (x * 64),
+		(y * 64));
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.player, (x
+			* 64), (y * 64));
 }

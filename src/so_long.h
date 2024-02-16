@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:58:44 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/15 21:38:11 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:01:04 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,11 @@ void			get_images(t_game *game);
 int				destroy_window(t_game *game);
 int				handler_keys(int keycode, t_game *game);
 void			ft_free(t_game *game);
+void			put_player_exit(t_game *game, int x, int y);
+void			put_player(t_game *game, int x, int y);
+void			put_exit(t_game *game, int x, int y);
+void			put_collects(t_game *game, int x, int y);
+void			put_wall(t_game *game, int x, int y);
+void			put_floor(t_game *game, int x, int y);
 
 #endif
