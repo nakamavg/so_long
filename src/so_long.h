@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:58:44 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/16 02:01:04 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:50:52 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ typedef struct s_image
 	void		*wall;
 	void		*floor;
 	void		*exit;
-	int			w;
-	int			h;
 }				t_image;
 
 typedef struct s_game
@@ -81,7 +79,6 @@ void			check_extension(char *argv1, t_game *game);
 void			get_len(t_game *game);
 void			ft_error(char *message);
 void			read_map(t_game *game);
-void			print_map(t_game *game);
 void			check_perimeter(t_game *game);
 void			count_things(t_game *game);
 void			get_player(t_game *game);
