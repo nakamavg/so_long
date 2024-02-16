@@ -1,7 +1,7 @@
 # DEMASIADO LARGO
 # Mis structs
 
-- Tengo una struct principal con mas structs para solo mandar por argumentos el mismo y sea mas facil de manipular mis variables
+- Tengo una struct principal que es un conjunto de estructuras para poder manipular mis variables de forma mas facil
 
 ```c
 typedef struct s_game
