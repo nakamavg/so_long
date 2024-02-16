@@ -31,5 +31,6 @@ clean:
 	rm -rf bin
 fclean: clean
 	rm -rf $(NAME)
+	
 re: clean all 
-#norminette src/*.c 
+.PHONY: all clean fclean re

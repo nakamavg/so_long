@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:57:36 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/16 02:01:58 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 04:04:56 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	get_len(t_game *game)
 	game->map.x = ft_strlen(line) - 1;
 	while (line)
 	{
-		if (line[strlen(line) - 1] == '\n')
-			line[strlen(line) - 1] = '\0';
+		if (line[ft_strlen(line) - 1] == '\n')
+			line[ft_strlen(line) - 1] = '\0';
 		if (ft_strlen(line) != game->map.x)
 			ft_error("Error\nMap on x is irregular\n");
 		game->map.y++;
