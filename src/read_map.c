@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   readmap.c                                          :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:25:55 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/15 21:39:00 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:12:03 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ void	check_perimeter(t_game *game)
 	}
 }
 
+void	check_other_things(t_game *game, int y, int x)
+{
+	if (game->map.map[y][x] != '1' && game->map.map[y][x] != '0'
+		&& game->map.map[y][x] != '\n')
+		ft_error("Error\nChar on map Invalid\n");
+}
+
 void	count_things(t_game *game)
 {
 	int	x;
@@ -76,6 +83,8 @@ void	count_things(t_game *game)
 				game->player.c_collects++;
 			else if (game->map.map[y][x] == 'E')
 				game->map.count++;
+			else
+				check_other_things(game, y, x);
 			x++;
 		}
 		y++;

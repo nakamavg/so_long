@@ -6,7 +6,7 @@
 /*   By: dgomez-m <dgomez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:57:36 by dgomez-m          #+#    #+#             */
-/*   Updated: 2024/02/16 04:04:56 by dgomez-m         ###   ########.fr       */
+/*   Updated: 2024/02/16 23:31:14 by dgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_extension(char *argv1, t_game *game)
 {
 	int	i;
-
+	
 	i = ft_strlen(argv1);
 	if (ft_strncmp(&argv1[i - 4], ".ber", 4) != 0)
 	{
